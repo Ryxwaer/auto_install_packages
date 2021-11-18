@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# cava visualizer
+sudo pamac install cava
+# TeamViewer
+pamac build teamviewer
+sudo teamviewer --daemon enable
+# neofetch - terminal header
+sudo pacman -S neofetch
+# onboard - onscreen keyboard
+sudo pacman -S onboard
+cp ./numpad.onboard $HOME/.local/share/onboard/layouts/numpad.onboard
+cp ./numpad-Numpad.svg $HOME/.local/share/onboard/layouts/numpad-Numpad.svg
+echo "\nDon't forget to change layout for onboard to numepad\n"
+onboard &
+# install and enable snap support
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+# sublime text
+sudo snap install sublime-text --classic
+sudo cp ./Preferences.sublime-settings $HOME/.config/sublime-text/Packages/User/Preferences.sublime-settings
+# clipman - clipboard manager
+pamac install xfce4-clipman-plugin
+# visual studio code
+sudo pacman -S code
+sudo pacman -S groovy
+echo "\nInstall from file: thiunder client and groovy + from market: code-runner \n Then close Code and installation will continue\n"
+code
+# SystemLibrary
+git clone https://AdamPolicek:adam1155PO@bitbucket.org/ssdevelopmentteam/systemlibrary.git $HOME/Documents/
+cp ./"System Library-1.desktop" $HOME/.config/autostart/"System Library-1.desktop"
+# XmodMap - keyboard mapping
+#xmodmap -pke > ~/.Xmodmap
+sudo cp ./.Xmodmap $HOME/.Xmodmap
+filename='/etc/gdm/Xsession'
+read -p "usermodmap="$HOME/.Xmodmap"" newtext
+if [ "$newtext" != "" ]; then
+      echo $newtext >> $filename
+fi
+xmodmap ~/.Xmodmap
+# discord
+sudo pacman -S discord
+# howdy - windows hello
+sudo pamac install howdy
+export OPENCV_LOG_LEVEL=ERROR

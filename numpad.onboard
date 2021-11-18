@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!--
+Copyright © 2009, 2011-2014 marmuta <marmvta@gmail.com>This file is part of Onboard.
+Onboard is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+Onboard is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<keyboard id="numpad" format="3.2" section="system" summary="Desktop keyboard with edit and function keys">
+  <include file="key_defs.xml"/>
+  <box border="0.5" spacing="3" orientation="vertical">
+    <box spacing="3">
+      <panel>
+        <panel layer="numpad" filename="numpad-Numpad.svg" border="2">
+          <key id="HOME" group="keypadoperators" scan_priority="1"/>
+          <key group="bottonrow" id="move" expand="false"/>
+          <key group="bottomrow" id="hide"/>
+          <key id="END" group="keypadoperators" scan_priority="1"/>
+          <key group="keypadmisc" id="BKSP" scan_priority="1"/>
+          <key id="KPSU" group="keypadoperators" scan_priority="1"/>
+          <key id="KPDV" group="keypadoperators" scan_priority="1"/>
+          <key id="KPAD" group="keypadoperators" scan_priority="1"/>
+          <key id="KPMU" group="keypadoperators" scan_priority="1"/>
+          <key id="KP0" group="keypadnumber" scan_priority="1"/>
+          <key id="KP1" group="keypadnumber" scan_priority="1"/>
+          <key id="KP2" group="keypadnumber" scan_priority="1"/>
+          <key id="KP3" group="keypadnumber" scan_priority="1"/>
+          <key id="KP4" group="keypadnumber" scan_priority="1"/>
+          <key id="KP5" group="keypadnumber" scan_priority="1"/>
+          <key id="KP6" group="keypadnumber" scan_priority="1"/>
+          <key id="KP7" group="keypadnumber" scan_priority="1"/>
+          <key id="KP8" group="keypadnumber" scan_priority="1"/>
+          <key id="KP9" group="keypadnumber" scan_priority="1"/>
+          <key id="KPDL" group="keypadmisc" scan_priority="1"/>
+          <key id="KPEN" group="keypadmisc" scan_priority="1"/>
+        </panel>
+      </panel>
+    </box>
+  </box>
+</keyboard>

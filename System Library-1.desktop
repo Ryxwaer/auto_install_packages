@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=SystemLibrary
+GenericName=System Library
+Comment=coalsoft.cz
+Exec=/home/ryxwaer/.config/autostart/execute.sh
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
