@@ -1,5 +1,6 @@
 #!/bin/bash
-
+sudo pacman -Syu
+sudo pacman -S base-devel
 # clipman
 echo " -- installing clipman -- "
 pamac install xfce4-clipman-plugin
@@ -52,9 +53,13 @@ sudo cp "./.Xmodmap" "$HOME/.Xmodmap"
 # discord
 echo " -- installing discord -- "
 sudo pacman -S discord
+# xournal ++
+sudo pacman -S xournalpp
+# install chrome
+echo " -- installing Chrome -- "
+sudo pacman -S yay
+yay -S google-chrome
 # howdy - windows hello
 echo " -- installing howdy -- "
 sudo pamac install howdy
 export OPENCV_LOG_LEVEL=ERROR
-# xournal ++
-sudo pacman -S xournalpp
