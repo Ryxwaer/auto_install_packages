@@ -45,6 +45,11 @@ code
 echo " -- installing systemlibrary -- "
 git clone https://AdamPolicek:adam1155PO@bitbucket.org/ssdevelopmentteam/systemlibrary.git "$HOME/Documents/SystemLibrary/"
 cp ./"System Library-1.desktop" $HOME/.config/autostart/"System Library-1.desktop"
+sudo pacman -S npm
+cd "$HOME/Documents/SystemLibrary"
+npm install
+npm audit fix --force
+npm run build
 # XmodMap - keyboard mapping
 echo " -- configuring xmodmap -- "
 #xmodmap -pke > ~/.Xmodmap

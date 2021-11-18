@@ -2,7 +2,7 @@
 Name=SystemLibrary
 GenericName=System Library
 Comment=coalsoft.cz
-Exec=/home/ryxwaer/.config/autostart/execute.sh
+Exec=npm --prefix "/home/ryxwaer/Documents/SystemLibrary" run serve-dist
 Terminal=false
 Type=Application
 X-GNOME-Autostart-enabled=true
