@@ -1,50 +1,60 @@
 #!/bin/bash
 
 # clipman
-sudo install xfce4-clipman-plugin
+echo " -- installing clipman -- "
+pamac install xfce4-clipman-plugin
 cp ./xfce4-clipman-plugin-autostart.desktop $HOME/.config/autostart/xfce4-clipman-plugin-autostart.desktop
-xfce4-clipman &
 # cava visualizer
+echo " -- installing cava -- "
 sudo pamac install cava
 # TeamViewer
+echo " -- installing teamviewer -- "
 pamac build teamviewer
 sudo teamviewer --daemon enable
 # neofetch - terminal header
+echo " -- installing neofetch -- "
 sudo pacman -S neofetch
 # onboard - onscreen keyboard
+echo " -- installing onboard -- "
 sudo pacman -S onboard
-cp ./numpad.onboard $HOME/.local/share/onboard/layouts/numpad.onboard
-cp ./numpad-Numpad.svg $HOME/.local/share/onboard/layouts/numpad-Numpad.svg
-cp ./onboard-run.desktop $HOME/.config/autostart/onboard-run.desktop
-cp ./onboard.desktop $HOME/.local/share/applications/onboard.desktop
-echo "\nDon't forget to change layout for onboard to numepad\n"
 onboard &
+sleep 2
+cp ./numpad.onboard "$HOME/.local/share/onboard/layouts/numpad.onboard"
+cp ./numpad-Numpad.svg "$HOME/.local/share/onboard/layouts/numpad-Numpad.svg"
+cp ./onboard-run.desktop "$HOME/.config/autostart/onboard-run.desktop"
+cp ./onboard.desktop "$HOME/.local/share/applications/onboard.desktop"
+echo "\nDon't forget to change layout for onboard to numepad\n"
+
 # install and enable snap support
+echo " -- installing snap -- "
 sudo pacman -S snapd
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 # sublime text
+echo " -- installing sublime text -- "
 sudo snap install sublime-text --classic
 sudo cp ./Preferences.sublime-settings $HOME/.config/sublime-text/Packages/User/Preferences.sublime-settings
 # visual studio code
+echo " -- installing vs code -- "
 sudo pacman -S code
 sudo pacman -S groovy
 echo "\nInstall from file: thiunder client and groovy + from market: code-runner \n Then close Code and installation will continue\n"
 code
 # SystemLibrary
-git clone https://AdamPolicek:adam1155PO@bitbucket.org/ssdevelopmentteam/systemlibrary.git $HOME/Documents/
+echo " -- installing systemlibrary -- "
+git clone https://AdamPolicek:adam1155PO@bitbucket.org/ssdevelopmentteam/systemlibrary.git "$HOME/Documents/SystemLibrary/"
 cp ./"System Library-1.desktop" $HOME/.config/autostart/"System Library-1.desktop"
 # XmodMap - keyboard mapping
+echo " -- configuring xmodmap -- "
 #xmodmap -pke > ~/.Xmodmap
-sudo cp ./.Xmodmap $HOME/.Xmodmap
-filename='/etc/gdm/Xsession'
-read -p "usermodmap="$HOME/.Xmodmap"" newtext
-if [ "$newtext" != "" ]; then
-      echo $newtext >> $filename
-fi
-xmodmap ~/.Xmodmap
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'sk')]"
+sudo cp "./.Xmodmap" "$HOME/.Xmodmap"
 # discord
+echo " -- installing discord -- "
 sudo pacman -S discord
 # howdy - windows hello
+echo " -- installing howdy -- "
 sudo pamac install howdy
 export OPENCV_LOG_LEVEL=ERROR
+# xournal ++
+sudo pacman -S xournalpp
