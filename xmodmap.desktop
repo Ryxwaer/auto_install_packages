@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Correct keys layout
+Exec=/usr/bin/xmodmap ~/.Xmodmap
+Terminal=false
+StartupNotify=false
+Categories=Application;
+X-GNOME-Autostart-enabled=true

@@ -1,34 +1,35 @@
 #!/bin/bash
-sudo pacman -Syu
-sudo pacman -S base-devel
+sudo pacman -Syu --noconfirm
+sudo pacman -S base-devel --noconfirm
 # clipman
 echo " -- installing clipman -- "
-pamac install xfce4-clipman-plugin
-cp ./xfce4-clipman-plugin-autostart.desktop $HOME/.config/autostart/xfce4-clipman-plugin-autostart.desktop
+pamac install xfce4-clipman-plugin --no-confirm
+sudo cp ./clipman.desktop $HOME/.config/autostart/clipman.desktop
 # cava visualizer
 echo " -- installing cava -- "
-sudo pamac install cava
+sudo pamac install cava --no-confirm
 # TeamViewer
 echo " -- installing teamviewer -- "
-pamac build teamviewer
+pamac build teamviewer --no-confirm
 sudo teamviewer --daemon enable
+sudo cp ./teamviewer.desktop "$HOME/.config/autostart/teamviewer.desktop"
 # neofetch - terminal header
 echo " -- installing neofetch -- "
-sudo pacman -S neofetch
+sudo pacman -S neofetch --noconfirm
 # onboard - onscreen keyboard
 echo " -- installing onboard -- "
-sudo pacman -S onboard
+sudo pacman -S onboard --noconfirm
 onboard &
 sleep 2
-cp ./numpad.onboard "$HOME/.local/share/onboard/layouts/numpad.onboard"
-cp ./numpad-Numpad.svg "$HOME/.local/share/onboard/layouts/numpad-Numpad.svg"
-cp ./onboard-run.desktop "$HOME/.config/autostart/onboard-run.desktop"
-cp ./onboard.desktop "$HOME/.local/share/applications/onboard.desktop"
+sudo cp ./numpad.onboard "$HOME/.local/share/onboard/layouts/numpad.onboard"
+sudo cp ./numpad-Numpad.svg "$HOME/.local/share/onboard/layouts/numpad-Numpad.svg"
+sudo cp ./onboard-run.desktop "$HOME/.config/autostart/onboard-run.desktop"
+sudo cp ./onboard.desktop "$HOME/.local/share/applications/onboard.desktop"
 echo "\nDon't forget to change layout for onboard to numepad\n"
 
 # install and enable snap support
 echo " -- installing snap -- "
-sudo pacman -S snapd
+sudo pacman -S snapd --noconfirm
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 # sublime text
@@ -37,15 +38,15 @@ sudo snap install sublime-text --classic
 sudo cp ./Preferences.sublime-settings $HOME/.config/sublime-text/Packages/User/Preferences.sublime-settings
 # visual studio code
 echo " -- installing vs code -- "
-sudo pacman -S code
-sudo pacman -S groovy
+sudo pacman -S code --noconfirm
+sudo pacman -S groovy --noconfirm
 echo "\nInstall from file: thiunder client and groovy + from market: code-runner \n Then close Code and installation will continue\n"
 code
 # SystemLibrary
 echo " -- installing systemlibrary -- "
 git clone https://AdamPolicek:adam1155PO@bitbucket.org/ssdevelopmentteam/systemlibrary.git "$HOME/Documents/SystemLibrary/"
-cp ./"System Library-1.desktop" $HOME/.config/autostart/"System Library-1.desktop"
-sudo pacman -S npm
+sudo cp ./"System Library-1.desktop" $HOME/.config/autostart/"System Library-1.desktop"
+sudo pacman -S npm --noconfirm
 cd "$HOME/Documents/SystemLibrary"
 npm install
 npm audit fix --force
@@ -55,16 +56,31 @@ echo " -- configuring xmodmap -- "
 #xmodmap -pke > ~/.Xmodmap
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'sk')]"
 sudo cp "./.Xmodmap" "$HOME/.Xmodmap"
+sudo cp "./xmodmap.desktop" "$HOME/.config/autostart/xmodmap.desktop"
 # discord
 echo " -- installing discord -- "
-sudo pacman -S discord
+sudo pacman -S discord --noconfirm
+# fish
+echo " -- installing fish -- "
+sudo pacman -S fish --noconfirm
 # xournal ++
-sudo pacman -S xournalpp
+sudo pacman -S xournalpp --noconfirm
 # install chrome
 echo " -- installing Chrome -- "
-sudo pacman -S yay
+sudo pacman -S yay --noconfirm
 yay -S google-chrome
 # howdy - windows hello
 echo " -- installing howdy -- "
-sudo pamac install howdy
+sudo pamac install howdy --no-confirm
 export OPENCV_LOG_LEVEL=ERROR
+# MS Teams
+echo " -- installing MS Teams -- "
+sudo snap install teams-for-linux
+# Postman
+echo " -- installing MS Teams -- "
+sudo snap install postman
+# Spotify
+echo " -- installing spotify -- "
+sudo snap install spotify
+# audio
+sudo cp ./alsa-base.conf "/etc/modprobe.d/alsa-base.conf"

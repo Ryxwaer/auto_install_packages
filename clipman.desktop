@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Clipman
+GenericName=Clipman
+Comment=clipboard manager
+Exec=xfce4-clipman
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
